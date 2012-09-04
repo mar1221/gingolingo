@@ -1,2 +1,97 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<!-- ABOUT -->
+<section id="about" style="font-family:'BebasNeueRegular';">  
+    <p style="text-align:center; font-size:20px;">
+        <span class="bold" style="font-size:24px; display:block; margin-bottom:5px;">
+            New method of video language lessons
+        </span>
+        Practise speaking in everyday situations effectively
+    </p>    
+    <br class="clear" />
+</section>
+
+<!-- BUBBLES -->
+<div class="container">
+    <section id="bubbles">
+        <article id="bubble-first">
+            <%= image_tag 'listen.png', alt: 'Listen' %>
+            <h1>LISTEN</h1>
+            <p>Listen to the conversation<br /> in the video</p>
+        </article>
+        <article id="bubble-second">
+            <%= image_tag 'talk.png', alt: 'Talk' %>            
+            <h1>TALK</h1>
+            <p>Try to narrate<br/> your character</p>
+        </article>
+        <article id="bubble-third">
+            <%= image_tag 'improve.png', alt: 'Improve' %>            
+            <h1>IMPROVE</h1>
+            <p>Practise until you<br/> get in the role</p>
+        </article>
+        <br class="clear" />        
+    </section>  
+</div>
+
+<div style="margin-top:30px; text-align:center;">
+    <%= image_tag 'video.png', style: 'width:660px;margin:auto;' %>    
+    <div style="z-index:2; position:absolute; margin-top:-220px; margin-bottom:100px; width:940px;">        
+        <a href="#video_embed" title="Try it out" class="qwe" id="signuptoday" 
+          onClick="_gaq.push(['_trackEvent', 'User accounts operations', 'link to signup page', 'sign_up_link_large']);" style="margin:auto;" />TRY IT OUT <img src="{{ STATIC_URL }}img/play.png" style="margin-top:4px;"></a>
+    </div>
+    <br class="clear" />
+</div>
+        
+<!-- VIDEO -->   
+<div style="display:none; width: 740px; height: 500px; text-align: center;" id="video_embed">
+        
+    <div style="text-align:center;">
+        <div style="margin:auto;">
+            <div id="ytapiplayer">
+                Loading
+            </div>
+            <div id="nowstart">
+                <%= image_tag 'listen_gray.png' %>                
+                <p>
+                    <h2>LISTEN</h2> 
+                    <h3>Focus on the RED subtitles.<h3>
+                </p>
+                <a class="next_lecture" id="start_listen" href="#">Start Listening</a>
+            </div>
+
+            <div style="display:none;" id="nowtalk">
+                <%= image_tag 'talk_gray.png' %>                
+                <p>
+                  <h2>TALK</h2> 
+                  <h3>Narrate Chandler's voice aloud.</h3>
+                </p>
+                <%= link_to 'Start Talking', '#', class: 'next_lecture', id: 'start_talk' %>                
+            </div>
+
+            <div style="display:none;" id="great">
+                <%= image_tag 'improve_gray.png' %>                
+                <p>
+                    <h2>GET BETTER</h2> 
+                    <h3>Practice makes perfect</h3>
+                </p>
+                <%= link_to 'Next Lecture', '#', class: 'next_lecture', style: 'margin-top:-10px;' %>                                
+            </div>
+                    
+            <br>
+
+            <div class="subtitles_holder">
+                <div style="display:none;" class="subtitle_holder">
+                    <div id="subtitles">LISTEN</div>
+                        <div id="countdown">&nbsp;</div>
+                </div>
+                <div style="display:none;" id="subtitles2">
+                    LISTEN2
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+      
+<!-- FACEBOOK LIKE BOX --> 
+<section id="like_box">
+    <div class="fb-like-box" data-href="http://www.facebook.com/pages/GingoLingo/279467195492938?ref=hl" data-width="800" 
+      data-height="300" data-show-faces="true" data-stream="false" data-header="false"></div>
+</section>

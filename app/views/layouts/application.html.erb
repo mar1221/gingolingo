@@ -7,7 +7,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Gingolingo</title>  
 
@@ -20,10 +20,60 @@
             <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
         <![endif]-->
 
-        <%= yield %>
-        
+        <!-- FACEBOOK LIKE BOX -->
+        <div id="fb-root"></div>        
         <script>
-            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+
+        <!-- HEADER -->
+        <div class="container">
+            <header>        
+                <h1>
+                    <%= link_to(image_tag('logo.png', alt: 'GingoLingo logo'), root_path, title: 'GingoLingo Home') %>
+                </h1>
+                <h2>Learning English? Stop studying — Start talking!</h2>
+            </header>
+        
+            <!-- CONTENT -->
+            <div id="main" role="main">        
+                <!-- FLASH MESSAGES -->
+                
+
+                <%= yield %>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer>            
+            <section>
+                <article>
+                    <%= link_to(image_tag('logo_small.png', alt: 'GingoLingo small logo'), root_path, title: 'GingoLingo Home') %>                    
+                    <p>GingoLingo is a young international startup<br/> located in the Czech Republic.</p>
+                </article>`
+                <article>
+                    <div id="links">
+                        <%= link_to 'facebook.com/gingolingo', 'http://www.facebook.com/pages/GingoLingo/279467195492938' %>
+                        <%= link_to 'twitter.com/gingolingo', 'https://twitter.com/gingolingo' %>                        
+                    </div>
+                    <%= link_to('SIGN UP', '#', 
+                      onClick: "_gaq.push(['_trackEvent', 'User accounts operations', 'link to signup page', 'signup_link_small']);") %>                    
+                </article>            
+            </section>
+            <br class="clear">            
+        </footer>
+
+        
+        
+        <!-- GOOGLE ANALYTICS -->
+        <script> 
+            var _gaq=[['_setAccount','UA-34358240-1'],['_trackPageview']];
             (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
             g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
             s.parentNode.insertBefore(g,s)}(document,'script'));
